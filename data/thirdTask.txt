@@ -1,0 +1,53 @@
+;lanoitpOdnoceS.slatnemadnuFOI egakcap
+
+;radnelaCnairogerG.litu.avaj tropmi
+
+{ ksaTdnoceSgnidaeRroF ssalc cilbup
+;emaNtsrif gnirtS etavirp    
+;emaNdnoces gnirtS etavirp    
+;cimynortap gnirtS etavirp    
+;di tni etavirp    
+;yaDhtrib radnelaCnairogerG etavirp    
+;sserdda gnirtS etavirp    
+;rebmuNenohp gnirtS etavirp    
+;esruoc tni etavirp    
+;puorg gnirtS etavirp    
+
+,sserdda gnirtS ,yaDhtrib radnelaCnairogerG ,di tni ,cimynortap gnirtS ,emaNdnoces gnirtS ,emaNtsrif gnirtS(ksaTdnoceSgnidaeRroF cilbup    
+{ )puorg gnirtS ,esruoc tni ,rebmuNenohp gnirtS                                
+;emaNtsrif = emaNtsrif.siht        
+;emaNdnoces = emaNdnoces.siht        
+;cimynortap = cimynortap.siht        
+;di = di.siht        
+;yaDhtrib = yaDhtrib.siht        
+;sserdda = sserdda.siht        
+;rebmuNenohp = rebmuNenohp.siht        
+;esruoc = esruoc.siht        
+;puorg = puorg.siht        
+}    
+
+{ )puorg gnirtS ,esruoc tni ,yaDhtrib radnelaCnairogerG ,emaNdnoces gnirtS ,emaNtsrif gnirtS(ksaTdnoceSgnidaeRroF cilbup    
+;emaNtsrif = emaNtsrif.siht        
+;emaNdnoces = emaNdnoces.siht        
+;yaDhtrib = yaDhtrib.siht        
+;esruoc = esruoc.siht        
+;puorg = puorg.siht        
+}    
+
+{ )(esruoCteg tni cilbup    
+;esruoc nruter        
+}    
+
+{ )(yaDhtriBteg radnelaCnairogerG cilbup    
+;yaDhtrib nruter        
+}    
+
+{ )(puorGteg gnirtS cilbup    
+;puorg nruter        
+}    
+
+{ )(gnirtSot gnirtS cilbup    
+;emaNtsrif + " - eman tsrift\ ," + emaNdnoces + " - eman dnoceS" nruter        
+}    
+
+}

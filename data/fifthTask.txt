@@ -1,0 +1,7 @@
+[SOPOT, 8, 9, 10]
+[DUDIK, 7, 9, 10]
+[Dudareva, 5, 7, 9]
+[Kot, 6, 7, 8]
+[SUSHKO, 7, 9, 9]
+[DASHKO, 7, 9, 10]
+[RAKOVSKI, 10, 10, 7]
