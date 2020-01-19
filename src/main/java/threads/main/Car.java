@@ -18,12 +18,11 @@ public class Car {
             if (locker.tryLock()) {
                 try {
                     if (!condition.await(5, TimeUnit.SECONDS)) {
-                        //если время истекло - заходит
                         System.out.println(marka + " can't wait more. Car's leaving the queue");
                         return;
                     }
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 } finally {
                     locker.unlock();
                 }
@@ -37,7 +36,7 @@ public class Car {
                 Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             locker.unlock();
         }
@@ -51,7 +50,7 @@ public class Car {
             System.out.println(marka + " is leaving the parking");
             parking.increaseAvailablePlases();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             condition.signalAll();
             locker.unlock();
