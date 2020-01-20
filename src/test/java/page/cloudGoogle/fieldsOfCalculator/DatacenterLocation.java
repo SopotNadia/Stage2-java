@@ -25,7 +25,6 @@ public class DatacenterLocation {
         datacenterLocationContainer.click();
         WebElement datacenterLocation = new WebDriverWait(driver, 10).
                 until(ExpectedConditions.visibilityOfElementLocated(datacenterLocationBy));
-        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView",datacenterLocation);
         datacenterLocation.click();
         return this;
     }

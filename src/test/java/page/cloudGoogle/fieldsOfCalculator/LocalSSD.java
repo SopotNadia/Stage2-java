@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LocalSSD {
     private WebDriver driver;
-//    private By localSSDContainerBy =By.xpath("//label[contains(text(),'Local SSD')]/following-sibling::md-select");
     private By localSSDBy = By.xpath("//*[contains(text(),'2x375')]");
     private By GPUTypeNvidiaBy = By.xpath("//div[contains(text(),'NVIDIA Tesla T4')]");
 
