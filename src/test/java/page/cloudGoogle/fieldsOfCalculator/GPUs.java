@@ -1,5 +1,6 @@
 package page.cloudGoogle.fieldsOfCalculator;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -42,7 +43,7 @@ public class GPUs {
     }
 
     public GPUs selectNumberOfGPUs() {
-        new WebDriverWait(driver, 10).
+        new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOf(numberOfGPUsContainer));
         numberOfGPUsContainer.click();
         new WebDriverWait(driver, 5).

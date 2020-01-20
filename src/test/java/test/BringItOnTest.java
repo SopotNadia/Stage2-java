@@ -5,6 +5,7 @@ import page.pastebin.PastebinHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import page.pastebin.PastebinWithNewPastePage;
 
 public class BringItOnTest {
     public WebDriver driver;
@@ -18,12 +19,10 @@ public class BringItOnTest {
     @Test(description = "this test creates a new paste on https://pastebin.com/")
     public void createNewOtherPaste() {
         boolean expectedResults = new PastebinHomePage(driver).openPage()
-                .fillInTextForNewPaste("git config --global user.name  \"New Sheriff in Town\"\n" +
-                        "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
-                        "git push origin master --force")
+                .fillInTextForNewPaste(PastebinWithNewPastePage.getCODE())
                 .selectSyntaxHighlighting("8")
                 .selectPasteExpiration("10M")
-                .fillInNameForNewPaste("how to gain dominance among developers")
+                .fillInNameForNewPaste(PastebinWithNewPastePage.getPASTE_NAME())
                 .pushButtonCreateNewPaste()
                 .checkResultsOnPageWithNewPaste();
 

@@ -7,6 +7,19 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PastebinWithNewPastePage {
     private WebDriver driver;
+    private static final String CODE = "git config --global user.name  \"New Sheriff in Town\"\n" +
+            "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
+            "git push origin master --force";
+    private static final String PASTE_NAME = "how to gain dominance among developers";
+    private final String SYNTAX = "Bash";
+
+    public static String getCODE() {
+        return CODE;
+    }
+
+    public static String getPASTE_NAME() {
+        return PASTE_NAME;
+    }
 
     @FindBy (xpath = "//*[@id='success']")
     private WebElement expectedElement;
@@ -30,10 +43,8 @@ public class PastebinWithNewPastePage {
     }
 
     public boolean checkResultsOnPageWithNewPaste(){
-        return writtenCode.getText().equals("git config --global user.name  \"New Sheriff in Town\"\n" +
-                "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
-                "git push origin master --force")
-                && pasteName.getText().equals("how to gain dominance among developers")
-                && syntax.getText().equals("Bash");
+        return writtenCode.getText().equals(CODE)
+                && pasteName.getText().equals(PASTE_NAME)
+                && syntax.getText().equals(SYNTAX);
     }
 }

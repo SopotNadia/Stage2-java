@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CloudGoogleHomePage {
-    private static final String HOMEPAGE_URL = "https://cloud.google.com/";
+    private final String HOMEPAGE_URL = "https://cloud.google.com/";
     private WebDriver driver;
 
     @FindBy(xpath = "//div[@id='searchbox']")

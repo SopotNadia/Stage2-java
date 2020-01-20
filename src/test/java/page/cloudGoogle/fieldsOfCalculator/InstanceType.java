@@ -19,10 +19,10 @@ public class InstanceType {
     }
 
     public InstanceType selectInstanceType() {
-        WebElement instanceTypeContainer = new WebDriverWait(driver, 10).
+        WebElement instanceTypeContainer = new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOfElementLocated(INSTANCE_TYPE_CONTAINER));
         instanceTypeContainer.click();
-        WebElement instanceType = new WebDriverWait(driver, 10).
+        WebElement instanceType = new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOfElementLocated(INSTANCE_TYPE));
         instanceType.click();
         return this;

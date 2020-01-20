@@ -4,35 +4,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LocalSSD {
     private WebDriver driver;
-    private final By LOCAL_SSD_CONTAINER =By.xpath("//label[contains(text(),'Local SSD')]/following-sibling::md-select");
-    private final By LOCAL_SSD = By.xpath("//*[contains(text(),'2x375')]");
+//    private By localSSDContainerBy =By.xpath("//label[contains(text(),'Local SSD')]/following-sibling::md-select");
+    private By localSSDBy = By.xpath("//*[contains(text(),'2x375')]");
+    private By GPUTypeNvidiaBy = By.xpath("//div[contains(text(),'NVIDIA Tesla T4')]");
+
+    @FindBy(xpath = "//label[contains(text(),'Local SSD')]/following-sibling::md-select")
+    private WebElement localSSDContainer;
 
     public LocalSSD(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public LocalSSD selectLocalSSD() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)", "");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        WebElement localSSDContainer = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(LOCAL_SSD_CONTAINER));
+        new WebDriverWait(driver, 5).
+                until(ExpectedConditions.invisibilityOfElementLocated(GPUTypeNvidiaBy));
         localSSDContainer.click();
-        WebElement localSSD = new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(LOCAL_SSD));
+        WebElement localSSD = new WebDriverWait(driver, 5).
+                until(ExpectedConditions.visibilityOfElementLocated(localSSDBy));
         localSSD.click();
         return  this;
     }
