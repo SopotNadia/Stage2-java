@@ -3,6 +3,7 @@ package page.cloudGoogle;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +15,7 @@ public class PricingCalculatorPage {
     private By commitedUsageBy = By.xpath("//*[@id='select_option_85']/div[contains(text(),'3 Year')]");
 
     @FindBy(xpath = "//button[@aria-label='Add to Estimate' and contains(@ng-disabled,'ComputeEngineForm')]")
-    private WebElement addToEstimateButtonBy;
+    private WebElement addToEstimateButton;
 
     public PricingCalculatorPage(WebDriver driver) {
         this.driver = driver;
@@ -37,8 +38,8 @@ public class PricingCalculatorPage {
     public EstimatedCostPage addToEstimate() {
         new WebDriverWait(driver, 10).
                 until(ExpectedConditions.invisibilityOfElementLocated(commitedUsageBy));
-        addToEstimateButtonBy.click();
-        addToEstimateButtonBy.click();
+        addToEstimateButton.click();
+        addToEstimateButton.click();
         return new EstimatedCostPage(driver);
     }
 }

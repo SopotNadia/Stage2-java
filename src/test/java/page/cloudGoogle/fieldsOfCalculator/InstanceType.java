@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InstanceType {
     private WebDriver driver;
-    private final By INSTANCE_TYPE = By.xpath("//md-option/div[contains(text(),'standard-8')]");
-    private final By INSTANCE_TYPE_CONTAINER = By.xpath("//label[contains(text(),'Machine type')]/following-sibling::md-select");
+    private By instanceTypeBy = By.xpath("//md-option/div[contains(text(),'standard-8')]");
+    private By instanceTypeContainerBy = By.xpath("//label[contains(text(),'Machine type')]/following-sibling::md-select");
 
     public InstanceType(WebDriver driver) {
         this.driver = driver;
@@ -20,10 +20,10 @@ public class InstanceType {
 
     public InstanceType selectInstanceType() {
         WebElement instanceTypeContainer = new WebDriverWait(driver, 5).
-                until(ExpectedConditions.visibilityOfElementLocated(INSTANCE_TYPE_CONTAINER));
+                until(ExpectedConditions.visibilityOfElementLocated(instanceTypeContainerBy));
         instanceTypeContainer.click();
-        WebElement instanceType = new WebDriverWait(driver, 5).
-                until(ExpectedConditions.visibilityOfElementLocated(INSTANCE_TYPE));
+        WebElement instanceType = new WebDriverWait(driver, 10).
+                until(ExpectedConditions.visibilityOfElementLocated(instanceTypeBy));
         instanceType.click();
         return this;
     }

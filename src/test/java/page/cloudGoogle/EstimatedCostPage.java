@@ -1,6 +1,7 @@
 package page.cloudGoogle;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,11 @@ public class EstimatedCostPage {
     @FindBy(xpath = "//div[contains(text(),'Commitment term')]")
     private WebElement commitmentTermElement;
 
+    @FindBy(xpath = "//*[@aria-label='Email Estimate']")
+    private WebElement emailEstimateButton;
+
+    private By estimateCurrencyFieldBy = By.xpath("//*[text()='USD - US Dollar']");
+
     public EstimatedCostPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -48,7 +54,7 @@ public class EstimatedCostPage {
     public boolean checkFieldsAndPriceOfEstimatedCost() {
         boolean expectedResults = true;
         new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(By.id("email_quote")));
+                until(ExpectedConditions.visibilityOfElementLocated(estimateCurrencyFieldBy));
 
         String VMClass = VMClassElement.getText();
         if(VMClass.contains(EXPECTED_VM)){
@@ -98,5 +104,13 @@ public class EstimatedCostPage {
             messageAboutExpectedResults.append(String.format("\nRent sum per month doesn't  equal rent sum from manual test (%s) \n",EXPECTED_ESTIMATION_COST));
         }
         return expectedResults;
+    }
+
+    public EmailYourEstimateForm pressEmailEstimateButton() {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(estimateCurrencyFieldBy));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", VMClassElement);
+        emailEstimateButton.click();
+        return new EmailYourEstimateForm(driver);
     }
 }

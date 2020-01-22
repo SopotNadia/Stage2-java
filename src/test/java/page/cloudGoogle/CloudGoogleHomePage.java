@@ -13,7 +13,7 @@ public class CloudGoogleHomePage {
     private final String HOMEPAGE_URL = "https://cloud.google.com/";
     private WebDriver driver;
 
-    @FindBy(xpath = "//div[@id='searchbox']")
+    @FindBy(id = "searchbox")
     private WebElement searchButton;
 
     @FindBy(name = "q")

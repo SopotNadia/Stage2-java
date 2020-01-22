@@ -12,10 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CommittedUsage {
     private WebDriver driver;
     private By committedUsageBy = By.xpath("//*[@id='select_option_85']/div[contains(text(),'1 Year')]");
-    private By datacenterLocationOsaka = By.xpath("//*[@id='select_option_185']/child::div[contains(text(),'Osaka')]");
+    private By datacenterLocationOsakaBy = By.xpath("//*[@id='select_option_185']/child::div[contains(text(),'Osaka')]");
 
     @FindBy(xpath = "//label[contains(text(),'Committed usage')]/following-sibling::md-select")
-    private WebElement committedUsageContainerBy;
+    private WebElement committedUsageContainer;
 
     public CommittedUsage(WebDriver driver) {
         this.driver = driver;
@@ -24,8 +24,8 @@ public class CommittedUsage {
 
     public CommittedUsage selectCommittedUsage() {
          new WebDriverWait(driver, 5).
-                until(ExpectedConditions.invisibilityOfElementLocated(datacenterLocationOsaka));
-        committedUsageContainerBy.click();
+                 until(ExpectedConditions.invisibilityOfElementLocated(datacenterLocationOsakaBy));
+        committedUsageContainer.click();
         WebElement committedUsage = new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOfElementLocated(committedUsageBy));
         committedUsage.click();
