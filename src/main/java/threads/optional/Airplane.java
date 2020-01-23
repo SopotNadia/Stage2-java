@@ -9,13 +9,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Airplane extends Thread {
     private Semaphore semaphore;
     private Stack<Integer> commonResource;
-    private ReentrantLock locker;
     private Integer line;
     private int amountFlights = 0;
 
-    public Airplane(Semaphore semaphore, ReentrantLock locker, Stack commonResource) {
+    public Airplane(Semaphore semaphore, Stack commonResource) {
         this.semaphore = semaphore;
-        this.locker = locker;
         this.commonResource = commonResource;
     }
 
@@ -24,11 +22,9 @@ public class Airplane extends Thread {
         try {
             while (amountFlights < 1) {
                 semaphore.acquire();
-                locker.lock();
                 line = commonResource.pop();
                 System.out.println(Thread.currentThread().getName() + " выходит на взлетную полосу " + line.toString());
                 sleep(1000);
-                locker.unlock();
                 System.out.println(Thread.currentThread().getName() + " набирает скорость");
                 sleep(2000);
                 amountFlights++;

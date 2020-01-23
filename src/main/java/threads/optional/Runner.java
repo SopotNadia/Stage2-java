@@ -10,11 +10,11 @@ public class Runner {
         for (int i = 1; i < 6; i++) {
             airport.addIntoStack(i);
         }
-        ReentrantLock locker = new ReentrantLock();
+        //ReentrantLock locker = new ReentrantLock();
         Stack<Integer> commonResource = airport.getListLines();
         Semaphore semaphore = new Semaphore(5, true);
         for (int i = 1; i < 11; i++) {
-            Thread thread = new Airplane(semaphore, locker, commonResource);
+            Thread thread = new Airplane(semaphore, commonResource);  //locker,
             thread.setName("Boeing " + i);
             thread.start();
         }
