@@ -5,12 +5,12 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Car {
-    private String marka;
+    private String model;
     private static ReentrantLock locker = new ReentrantLock();
     private static Condition condition = locker.newCondition();
 
-    public Car(String marka) {
-        this.marka = marka;
+    public Car(String model) {
+        this.model = model;
     }
 
     public void tryToPark(Parking parking) {
@@ -18,7 +18,7 @@ public class Car {
             if (locker.tryLock()) {
                 try {
                     if (!condition.await(5, TimeUnit.SECONDS)) {
-                        System.out.println(marka + " can't wait more. Car's leaving the queue");
+                        System.out.println(model + " can't wait more. Car's leaving the queue");
                         return;
                     }
                 } catch (InterruptedException e) {
@@ -32,7 +32,7 @@ public class Car {
             locker.lock();
             if (parking.getAvailablePlaces() > 0) {
                 parking.decreaseAvailablePlaces();
-                System.out.println(marka + " is parking");
+                System.out.println(model + " is parking");
                 Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
@@ -47,8 +47,8 @@ public class Car {
         try {
             Thread.sleep((long) (4000 + Math.random() * 2000));
             locker.lock();
-            System.out.println(marka + " is leaving the parking");
-            parking.increaseAvailablePlases();
+            System.out.println(model + " is leaving the parking");
+            parking.increaseAvailablePlaces();
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -60,7 +60,7 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "marka='" + marka + '\'' +
+                "model='" + model + '\'' +
                 '}';
     }
 }

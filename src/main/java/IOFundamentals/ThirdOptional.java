@@ -7,7 +7,7 @@ public class ThirdOptional {
     public static void main(String[] args) {
         try (FileReader reader = new FileReader("src/main/java/IOFundamentals/SecondOptional/ForReadingSecondTask.java");
              BufferedReader bufferedReader = new BufferedReader(reader);
-             FileWriter writer = new FileWriter("data/thirdTask.txt");
+             FileWriter writer = new FileWriter("src/main/resources/data/thirdTask.txt");
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {

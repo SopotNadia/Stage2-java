@@ -33,7 +33,7 @@ public class Faculty extends Entity {
         double sumForFaculty = 0;
         double sumForGroup;
         if (groupsList.isEmpty()) {
-            throw new LackOfGroupsException(this.getName());
+            throw new LackOfGroupsException(this.getName() + "should have at least one group");
         }
         for (Group group : groupsList) {
             sumForGroup = 0;

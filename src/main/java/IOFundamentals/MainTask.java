@@ -16,7 +16,7 @@ public class MainTask {
         try {
             File file = new File(args[0]);
             if (file.exists() && file.isDirectory()) {
-                try (FileWriter writer = new FileWriter("data/mainTask.txt");
+                try (FileWriter writer = new FileWriter("src/main/resources/data/mainTask.txt");
                      BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
                     writeFilesFromDirectory(file, 0, bufferedWriter);
                 } catch (IOException e) {

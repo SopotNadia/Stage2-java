@@ -58,50 +58,50 @@ public class EstimatedCostPage {
 
         String VMClass = VMClassElement.getText();
         if(VMClass.contains(EXPECTED_VM)){
-            messageAboutExpectedResults.append(String.format("VM class is true (%s) \n", EXPECTED_VM));
+            messageAboutExpectedResults.append(String.format("VM class actual result equals expected result (%s) \n", EXPECTED_VM));
         } else{
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("VM class is false (not %s) \n", EXPECTED_VM));
+            messageAboutExpectedResults.append(String.format("VM class actual result doesn't equal expected result (not %s) \n", EXPECTED_VM));
         }
 
         String instanceType = instanceTypeElement.getText();
         if(instanceType.contains(EXPECTED_INSTANCE_TYPE)){
-            messageAboutExpectedResults.append(String.format("Instance type is true (%s) \n", EXPECTED_INSTANCE_TYPE));
+            messageAboutExpectedResults.append(String.format("Instance type actual result equals expected result (%s) \n", EXPECTED_INSTANCE_TYPE));
         } else {
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("Instance type is false (not %s) \n", EXPECTED_INSTANCE_TYPE));
+            messageAboutExpectedResults.append(String.format("Instance type actual result doesn't equal expected result (not %s) \n", EXPECTED_INSTANCE_TYPE));
         }
 
         String region = regionElement.getText();
         if(region.contains(EXPECTED_REGION)){
-            messageAboutExpectedResults.append(String.format("Region is true (%s) \n", EXPECTED_REGION));
+            messageAboutExpectedResults.append(String.format("Region actual result equals expected result (%s) \n", EXPECTED_REGION));
         } else {
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("Region is false (not %s) \n", EXPECTED_REGION));
+            messageAboutExpectedResults.append(String.format("Region actual result doesn't equal expected result (not %s) \n", EXPECTED_REGION));
         }
 
         String localSSD = localSSDElement.getText();
         if(localSSD.contains(EXPECTED_LOCAL_SSD)){
-            messageAboutExpectedResults.append(String.format("Local SSD is true (%s) \n", EXPECTED_LOCAL_SSD));
+            messageAboutExpectedResults.append(String.format("Local SSD result equals expected result (%s) \n", EXPECTED_LOCAL_SSD));
         }else {
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("Local SSD is false (not %s) \n", EXPECTED_LOCAL_SSD));
+            messageAboutExpectedResults.append(String.format("Local SSD actual result doesn't equal expected result (not %s) \n", EXPECTED_LOCAL_SSD));
         }
 
         String commitmentTerm = commitmentTermElement.getText();
         if(commitmentTerm.contains(EXPECTED_COMMITMENT_TERM)){
-            messageAboutExpectedResults.append(String.format("Commitment term is true (%s) \n", EXPECTED_COMMITMENT_TERM));
+            messageAboutExpectedResults.append(String.format("Commitment term result equals expected result (%s) \n", EXPECTED_COMMITMENT_TERM));
         }else{
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("Commitment term is false (not %s) \n", EXPECTED_COMMITMENT_TERM));
+            messageAboutExpectedResults.append(String.format("Commitment term actual result doesn't equal expected result (not %s) \n", EXPECTED_COMMITMENT_TERM));
         }
 
         String totalEstimatedCost =  totalEstimatedCostElement.getText();
         if(totalEstimatedCost.contains(EXPECTED_ESTIMATION_COST)) {
-            messageAboutExpectedResults.append(String.format("Rent sum per month equals rent sum from manual test (%s) \n", EXPECTED_ESTIMATION_COST));
+            messageAboutExpectedResults.append(String.format("Rent sum per month equals rent sum from manual test (expected result %s) \n", EXPECTED_ESTIMATION_COST));
         } else {
             expectedResults = false;
-            messageAboutExpectedResults.append(String.format("\nRent sum per month doesn't  equal rent sum from manual test (%s) \n",EXPECTED_ESTIMATION_COST));
+            messageAboutExpectedResults.append(String.format("Rent sum per month doesn't  equal rent sum from manual test (expected result %s) \n", EXPECTED_ESTIMATION_COST));
         }
         return expectedResults;
     }

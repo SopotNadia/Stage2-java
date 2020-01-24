@@ -8,7 +8,7 @@ public class TenthOptional {
     public static void main(String[] args) {
         ArrayList<String> linesFromFile = new ArrayList<>();
         StringBuilder linesAfterChanging = new StringBuilder();
-        try (FileReader reader = new FileReader("data/tenthTask.txt");
+        try (FileReader reader = new FileReader("src/main/resources/data/tenthTask.txt");
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -28,7 +28,7 @@ public class TenthOptional {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        try (FileWriter writer = new FileWriter("data/tenthTask.txt");
+        try (FileWriter writer = new FileWriter("src/main/resources/data/tenthTask.txt");
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
 
             bufferedWriter.write(linesAfterChanging.toString());

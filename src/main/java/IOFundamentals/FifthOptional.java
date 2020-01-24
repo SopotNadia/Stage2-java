@@ -9,7 +9,7 @@ public class FifthOptional {
     // которые имеют средний балл более 7.
     public static void main(String[] args) {
         ArrayList linesFromFile = new ArrayList<>();
-        try (FileReader reader = new FileReader("data/fifthTask.txt");
+        try (FileReader reader = new FileReader("src/main/resources/data/fifthTask.txt");
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -24,7 +24,7 @@ public class FifthOptional {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        try (FileWriter writer = new FileWriter("data/fifthTask.txt");
+        try (FileWriter writer = new FileWriter("src/main/resources/data/fifthTask.txt");
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             for (Object array : linesFromFile) {
                 bufferedWriter.write(array.toString());

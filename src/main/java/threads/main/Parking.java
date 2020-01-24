@@ -27,7 +27,7 @@ public class Parking {
         availablePlaces--;
     }
 
-    public void increaseAvailablePlases() {
+    public void increaseAvailablePlaces() {
         availablePlaces++;
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class SearchResultsPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//*[@class='gsc-webResult gsc-result']/descendant::div[@class='gsc-thumbnail-inside']/descendant::a/b[text()='Google Cloud Platform Pricing Calculator']")
+    @FindBy(xpath = "//b[text()='Google Cloud Platform Pricing Calculator']")
     private List<WebElement> searchResults;
 
     public SearchResultsPage(WebDriver driver) {

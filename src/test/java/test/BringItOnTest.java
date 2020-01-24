@@ -29,9 +29,9 @@ public class BringItOnTest {
         Assert.assertTrue(expectedResults);
     }
 
-    @AfterTest(alwaysRun = true)
-    public void closeBrowser() {
-        driver.quit();
-    }
+//    @AfterTest(alwaysRun = true)
+//    public void closeBrowser() {
+//        driver.quit();
+//    }
 
 }

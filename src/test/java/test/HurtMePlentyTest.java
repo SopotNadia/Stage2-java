@@ -22,7 +22,7 @@ public class HurtMePlentyTest {
         driver.manage().window().maximize();
     }
 
-    @Test(description = "This test checks input fields and calculation of cloud computer price", invocationCount=2)
+    @Test(description = "This test checks input fields and calculation of cloud computer price", invocationCount = 4)
     public void calculateVM(){
         boolean expectedResults = new CloudGoogleHomePage(driver)
                 .open()
