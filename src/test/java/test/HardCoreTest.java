@@ -35,9 +35,9 @@ public class HardCoreTest {
         Assert.assertTrue(result, "Total estimated cost from calculator doesn't equal total estimated cost from email");
     }
 
-//    @AfterTest
-//    public void closeBrowser() {
-//        driver.quit();
-//        driver = null;
-//    }
+    @AfterTest
+    public void closeBrowser() {
+        driver.quit();
+        driver = null;
+    }
 }
