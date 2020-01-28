@@ -1,33 +1,34 @@
-package page.fieldsOfCalculator;
+package page.cloudGoogle.fieldsOfCalculator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import page.AbstractPage;
 
-public class CommittedUsage extends AbstractPage {
+public class CommittedUsage {
+    private WebDriver driver;
     private By committedUsageBy = By.xpath("//*[@id='select_option_85']/div[contains(text(),'1 Year')]");
     private By datacenterLocationOsakaBy = By.xpath("//*[@id='select_option_185']/child::div[contains(text(),'Osaka')]");
 
     @FindBy(xpath = "//label[contains(text(),'Committed usage')]/following-sibling::md-select")
     private WebElement committedUsageContainer;
 
-    public CommittedUsage() {
-        super();
+    public CommittedUsage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public CommittedUsage selectCommittedUsage() {
          new WebDriverWait(driver, 5).
                  until(ExpectedConditions.invisibilityOfElementLocated(datacenterLocationOsakaBy));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", committedUsageContainer);
+        committedUsageContainer.click();
         WebElement committedUsage = new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOfElementLocated(committedUsageBy));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", committedUsage);
+        committedUsage.click();
         return this;
     }
 }

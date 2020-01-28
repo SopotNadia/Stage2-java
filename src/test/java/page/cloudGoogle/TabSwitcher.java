@@ -1,4 +1,4 @@
-package page;
+package page.cloudGoogle;
 
 import org.openqa.selenium.WebDriver;
 

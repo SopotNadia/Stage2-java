@@ -1,6 +1,5 @@
-package page.fieldsOfCalculator;
+package page.cloudGoogle.fieldsOfCalculator;
 
-import driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import page.AbstractPage;
 
-public class GPUs extends AbstractPage {
-    private By instanceTypeBy = By.xpath("//md-option/div[contains(text(),'standard-8')]");
+public class GPUs {
+    private WebDriver driver;
 
     @FindBy(xpath = "//div[@class='md-container md-ink-ripple']")
     private WebElement checkBoxAddGPUs;
@@ -32,35 +30,35 @@ public class GPUs extends AbstractPage {
     @FindBy(xpath = "//label[contains(text(),'Local SSD')]/following-sibling::md-select")
     private WebElement localSSDContainer;
 
-    public GPUs() {
-        super();
+    public GPUs(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public GPUs clickCheckBoxAddGPUs() {
         new WebDriverWait(driver, 5).
-                until(ExpectedConditions.invisibilityOfElementLocated(instanceTypeBy));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkBoxAddGPUs);
+                until(ExpectedConditions.visibilityOf(checkBoxAddGPUs));
+        checkBoxAddGPUs.click();
         return this;
     }
 
     public GPUs selectNumberOfGPUs() {
         new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOf(numberOfGPUsContainer));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", numberOfGPUsContainer);
+        numberOfGPUsContainer.click();
         new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOf(numberOfGPUs));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", numberOfGPUs);
+        numberOfGPUs.click();
         return this;
     }
 
     public GPUs selectGPUType() {
         new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOf(GPUTypeContainer));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", GPUTypeContainer);
+        GPUTypeContainer.click();
         new WebDriverWait(driver, 5).
                 until(ExpectedConditions.visibilityOf(GPUType));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", GPUType);
+        GPUType.click();
         return this;
     }
 }
