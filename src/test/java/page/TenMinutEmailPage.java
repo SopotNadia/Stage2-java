@@ -1,23 +1,21 @@
-package page.cloudGoogle;
+package page;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TenMinutEmailPage {
-    private WebDriver driver;
+public class TenMinutEmailPage extends AbstractPage {
     private By emailAddressBy = By.id("mailAddress");
 
-    public TenMinutEmailPage(WebDriver driver) {
-        this.driver = driver;
+    public TenMinutEmailPage() {
+        super();
     }
 
     public EmailYourEstimateForm getEmailAddress() {
         String emailAddress = new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.visibilityOfElementLocated(emailAddressBy)).getAttribute("value");
         TabSwitcher.switchTab(driver, 0);
-        return new EmailYourEstimateForm(driver, emailAddress);
+        return new EmailYourEstimateForm(emailAddress);
     }
 
 }
